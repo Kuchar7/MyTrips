@@ -137,7 +137,14 @@
     <Compile Include="Migrations\202011241717507_initial.designer.cs">
       <DependentUpon>202011241717507_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011241857457_CreateDto.cs" />
+    <Compile Include="Migrations\202011241857457_CreateDto.designer.cs">
+      <DependentUpon>202011241857457_CreateDto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Data\Photo.cs" />
+    <Compile Include="Models\Data\Trip.cs" />
+    <Compile Include="Models\Data\Video.cs" />
     <Compile Include="Models\DbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,7 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Data\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +205,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011241717507_initial.resx">
       <DependentUpon>202011241717507_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241857457_CreateDto.resx">
+      <DependentUpon>202011241857457_CreateDto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
