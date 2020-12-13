@@ -16,12 +16,13 @@ namespace MyTrips.Models.Data
         public DateTime StartDate{get; set;}
         public DateTime EndDate { get; set; }
         public int Days { get; set; }
-        public int Kilometers { get; set; }
+        public uint Kilometers { get; set; }
         public string LaunchSite { get; set; }
         public string Destination { get; set; }
         public string Description { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
+
 
 
 

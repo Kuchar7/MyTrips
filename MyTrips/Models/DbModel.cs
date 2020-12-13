@@ -15,6 +15,7 @@ namespace MyTrips.Models
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
+
     }
 
 }

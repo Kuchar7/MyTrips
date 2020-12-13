@@ -13,7 +13,7 @@ namespace MyTrips.Models.Data
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ImagePath { get; set; }
+        public string ImagePath { get; set; }
         [ForeignKey("TripId")]
         public Trip Trip { get; set; }
         public int TripId { get; set; }
