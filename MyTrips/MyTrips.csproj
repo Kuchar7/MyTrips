@@ -148,12 +148,18 @@
     <Compile Include="Migrations\202012061341221_2.designer.cs">
       <DependentUpon>202012061341221_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012231503424_3.cs" />
+    <Compile Include="Migrations\202012231503424_3.designer.cs">
+      <DependentUpon>202012231503424_3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Data\Photo.cs" />
     <Compile Include="Models\Data\Trip.cs" />
     <Compile Include="Models\Data\Video.cs" />
     <Compile Include="Models\DbModel.cs" />
     <Compile Include="Models\ViewModels\AddTripVM.cs" />
+    <Compile Include="Models\ViewModels\DetailsTripVM.cs" />
+    <Compile Include="Models\ViewModels\ListTripVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +169,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Img\nature-3681148_1920.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\style.css" />
@@ -272,8 +279,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Views\Prototype\add.html" />
-    <Content Include="Views\Prototype\css\style.css" />
-    <Content Include="Views\Prototype\details.html" />
     <Content Include="Views\Prototype\img\1.jpg" />
     <Content Include="Views\Prototype\img\test1.jpg" />
     <Content Include="Views\Prototype\img\test2.jpg" />
@@ -305,10 +310,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\AddTrip.cshtml" />
     <Content Include="Views\Home\x.cshtml" />
+    <Content Include="Views\Home\DetailsTrip.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Gallery\" />
+    <Folder Include="Gallery\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -327,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012061341221_2.resx">
       <DependentUpon>202012061341221_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012231503424_3.resx">
+      <DependentUpon>202012231503424_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

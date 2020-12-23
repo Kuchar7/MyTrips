@@ -48,15 +48,15 @@ body {
 }
 
 .carousel-img-one {
-    background-image: url('/img/test1.jpg');
+    background-image: url('Img/nature-3681148_1920.jpg')
 }
 
 .carousel-img-two {
-    background-image: url('/img/test2.jpg');
+    background-image: url('../Content/Img/nature-3681148_1920.jpg');
 }
 
 .carousel-img-three {
-    background-image: url('/img/test3.jpg');
+    background-image: url('../Content/Img/nature-3681148_1920.jpg');
 }
 
 /* main */

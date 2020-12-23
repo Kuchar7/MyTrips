@@ -10,11 +10,19 @@ using System.Web.Mvc;
 
 namespace MyTrips.Controllers
 {
+   
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            List<ListTripVM> tripsList;
+            using (var db = new DbModel())
+            {
+                tripsList = db.Trips.ToArray().Select(x => new ListTripVM(x)).ToList();
+
+            }
+            return View(tripsList);
         }
 
         public ActionResult AddTrip()
@@ -53,11 +61,12 @@ namespace MyTrips.Controllers
                     {
                         if (video.ContentLength > 0)
                         {
-                            path = Path.Combine(Server.MapPath("~/Content/Gallery/"), (DateTime.Now.Ticks + video.FileName));
+                            string fullFileName = DateTime.Now.Ticks + video.FileName;
+                            path = Path.Combine(Server.MapPath("~/Gallery/"), fullFileName);
                             video.SaveAs(path);
                             Video newVideo = new Video()
                             {
-                                VideoPath = path
+                                VideoPath = "~/Gallery/" + fullFileName
                             };
                             tripDto.Videos.Add(newVideo);
                         }
@@ -69,11 +78,12 @@ namespace MyTrips.Controllers
                         {
                             if (img.ContentLength > 0)
                             {
-                                path = Path.Combine(Server.MapPath("~/Content/Gallery/"), (DateTime.Now.Ticks + img.FileName));
+                                string fullFileName = DateTime.Now.Ticks + img.FileName;
+                                path = Path.Combine(Server.MapPath("~/Gallery/"), fullFileName);
                                 img.SaveAs(path);
                                 Photo newPhoto = new Photo()
                                 {
-                                    ImagePath = path
+                                    ImagePath = "~/Gallery/" + fullFileName
                                 };
                                 tripDto.Photos.Add(newPhoto);
                             }
@@ -87,6 +97,25 @@ namespace MyTrips.Controllers
 
                 }
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult DetailsTrip(int? id)
+        {
+            DetailsTripVM detailsTripVM;
+            using (var db = new DbModel())
+            {
+                Trip dto = db.Trips.Find(id);
+                if (dto == null)
+                {
+                    return Content("Strona nie istnieje!");
+                }
+                else
+                {
+                    detailsTripVM = new DetailsTripVM(dto);
+                }              
+            }
+            return View(detailsTripVM);
         }
     }
 }

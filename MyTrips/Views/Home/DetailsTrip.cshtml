@@ -1,0 +1,69 @@
+﻿@model MyTrips.Models.ViewModels.DetailsTripVM
+
+@{
+    ViewBag.Title = "DetailsTrip";
+}
+
+<main>
+    <p class="display-4 text-center border-bottom py-2 mt-3">Informacje</p>
+    <div class="container d-flex justify-content-center">
+        <table class="table table-bordered w-50">
+            <tbody>
+                <tr>
+                    <th scope="row"><p>Data startu</p></th>
+                    <td style="width:50%"><p>@Html.DisplayFor(item => Model.StartDate)</p></td>
+                </tr>
+                <tr>
+                    <th scope="row"><p>Data zakończenia</p></th>
+                    <td style="width:50%"><p>@Html.DisplayFor(item => Model.EndDate)</p></td>
+                </tr>
+                <tr>
+                    <th scope="row"><p>Miejsce Startu</p></th>
+                    <td><p>@Html.DisplayFor(item => Model.LaunchSite)</p></td>
+                </tr>
+                <tr>
+                    <th scope="row"><p>Miejsce Docelowe</p></th>
+                    <td>@Html.DisplayFor(item => Model.Destination)</td>
+                </tr>
+                <tr>
+                    <th scope="row"><p>Liczba Kilometrów </p></th>
+                    <td>@Html.DisplayFor(item => Model.Kilometers)</td>
+                </tr>
+                <tr>
+                    <th scope="row"><p>Liczba Dni</p></th>
+                    <td><p>@Html.DisplayFor(item => Model.Days)</p></td>
+                </tr>
+                <tr>
+                    <th scope="row"><p>Opis</p></th>
+                    <td><p>@Html.DisplayFor(item => Model.Description)</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+
+
+        <h1 class="font-weight-light text-center  mt-4 mb-3 border-bottom">Galeria</h1>
+        <div class="container text-center text-lg-left row justify-content-center">
+
+
+
+            @foreach (var item in Model.Photos)
+            {
+                <div class="col-lg-3 col-md-4 col-6 px-0">
+                    <a target="_blank" href="@Url.Content(item.ImagePath)" class="d-block mb-4 h-100 p-0">
+                        <img class="img-fluid img-thumbnail" src="@Url.Content(item.ImagePath)" alt="Film">
+                    </a>
+                </div>
+            }
+                @foreach (var item in Model.Videos)
+                {
+                    <div class="col-lg-3 col-md-4 col-6 px-1">
+                        <iframe class="embed-responsive-item" src="@Url.Content(item.VideoPath)"></iframe>
+                    </div>
+                }
+
+
+        </div>
+    </div>
+</main>
