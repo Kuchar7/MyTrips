@@ -22,14 +22,7 @@ namespace MyTrips.Models.Data
         public string Description { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
-
-        private DateTime _addDate;
-
-        public DateTime AddDate
-        {
-            get { return _addDate; }
-            set { _addDate = DateTime.Now; }
-        }
+        public DateTime AddDate { get; set; }
 
 
 

@@ -38,7 +38,7 @@ namespace MyTrips.Controllers
             {
                 return View(addTripVM);
             }
-            if (images.Count > 6)
+            if (images.Count > 1)
             {
                 ModelState.AddModelError("", "Maksymalna ilość zdjęc wynosi 6");
                 return View(addTripVM);
@@ -53,6 +53,7 @@ namespace MyTrips.Controllers
                     tripDto.Destination = addTripVM.Destination;
                     tripDto.Description = addTripVM.Description;
                     tripDto.Days = (int)(addTripVM.EndDate - addTripVM.StartDate).TotalDays;
+                    tripDto.AddDate = DateTime.Now;
                     tripDto.Photos = new List<Photo>();
                     tripDto.Videos = new List<Video>();
                     var path = "";

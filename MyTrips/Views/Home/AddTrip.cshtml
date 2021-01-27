@@ -7,30 +7,38 @@
 
 <main>
     <p class="display-4 text-center border-bottom py-2 mt-3">Nowa wycieczka</p>
-    <div class="d-flex justify-content-center ">
-        @using (Html.BeginForm("AddTrip", "Home", FormMethod.Post, new { @class = "row col-6", @enctype = "multipart/form-data" }))
+    <div class="d-flex justify-content-center row">
+        @using (Html.BeginForm("AddTrip", "Home", FormMethod.Post, new { @class = "row col-lg-12 col-xl-9 justify-content-center", @enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
-            <div class="input-group input-group-lg mb-3 col-6">
+            <div class="input-group input-group-lg mb-3 col-md-4 col-lg-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-map-signs form-image"></i>
                     </span>
                 </div>
                 @Html.TextBoxFor(Model => Model.LaunchSite, new { @class = "form-control", @placeholder = "Miejsce startu" })
             </div>
-            <div class="input-group input-group-lg mb-3 col-6">
+            <div class="input-group input-group-lg mb-3 col-md-4 col-lg-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fas fa-map-pin form-image"></i>
                     </span>
                 </div>
                 @Html.TextBoxFor(Model => Model.Destination, new { @class = "form-control", @placeholder = "Miejsce zakończenia" })
             </div>
-            <div class="input-group input-group-lg mb-3 col-4 ">
+            <div class="input-group input-group-lg mb-3 col-md-4 col-lg-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-drafting-compass form-image"></i>
+                    </span>
+                </div>
+                @Html.TextBoxFor(Model => Model.Kilometers, new { @type = "number", @class = "form-control", @placeholder = "Liczba kilometrów" })
+            </div>
+            <div class="input-group input-group-lg mb-3 col-md-6 col-lg-4 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fas fa-hourglass-start form-image"></i>
                     </span>
                 </div>
                 @Html.EditorFor(Model => Model.StartDate, new
@@ -42,10 +50,10 @@
                }
            })
             </div>
-            <div class="input-group input-group-lg mb-3 col-4">
+            <div class="input-group input-group-lg mb-3 col-md-6 col-lg-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-hourglass-end form-image"></i>
                     </span>
                 </div>
                 @Html.EditorFor(Model => Model.EndDate, new
@@ -57,31 +65,29 @@
                }
            })
             </div>
-            <div class="input-group input-group-lg mb-3 col-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fas fa-user"></i>
-                    </span>
-                </div>
-                @Html.TextBoxFor(Model => Model.Kilometers, new { @type = "number", @class = "form-control", @placeholder = "Liczba kilometrów" })
 
-            </div>
 
-            <div class="input-group input-group-lg mb-3 col-12">
+            <div class="input-group input-group-lg mb-3 col-lg-12">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fas fa-user"></i>
+                    <span class="input-group-text form-image">
+                        <i class="fas fa-pen"></i>
                     </span>
                 </div>
                 @Html.TextAreaFor(Model => Model.Description, new { @rows = "6", @class = "form-control", @placeholder = "Opis wycieczki" })
             </div>
-            <div class="input-group input-group-lg mb-3 col-6">
+            <div class="input-group input-group-lg mb-3 col-lg-6">
+                <span class="input-group-text">
+                    <i class="fas fa-file-image form-image"></i>
+                </span>
                 <div class="custom-file">
                     <input multiple type="file" class="custom-file-input" id="images" name="images" accept="image/*">
                     <label class="custom-file-label" data-browse="Wybierz" for="images">Wybrane zdjęcia:</label>
                 </div>
             </div>
-            <div class="input-group input-group-lg mb-3 col-6">
+            <div class="input-group input-group-lg mb-3 col-lg-6">
+                <span class="input-group-text">
+                    <i class="fas fa-file-video form-image"></i>
+                </span>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="video" name="video" accept="video/*">
                     <label class="custom-file-label" data-browse="Wybierz" for="video">Wybrane filmy:</label>
@@ -91,21 +97,19 @@
                 @Html.ValidationSummary(false, "", new { @class = "text-danger ml-5" })
             </div>
             <div class="my-2 col-12 text-center">
-                <button type="submit" class="btn btn-outline-dark submit-btn">Dodaj</button>
+                <button type="submit" class="btn btn-outline-dark submit-btn px-4">Dodaj</button>
             </div>
         }
     </div>
 </main>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@section scripts {
     <script>
-        function checkFilesCount(id) {
-            if (id.images.length > 1) {
-                alert('you cant upload files more than 5');
-                document.getElementById("t").value = "";
-            }
-        }
+        $(document).ready(function () {
+            $("#index").removeClass("active");
+            $("#add-trip").addClass("active");
+        });
     </script>
-
 }
+
+
 

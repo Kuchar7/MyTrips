@@ -91,3 +91,13 @@ input[type="date"]:focus:before,
 input[type="date"]:valid:before {
     content: "";
 }
+
+.btn-outline-dark{
+    font-size: 1.0rem;
+}
+.form-image {
+    font-size: 1.6rem;
+}
+span{
+    width: 3.3rem;
+}
